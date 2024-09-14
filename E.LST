@@ -1,0 +1,91 @@
+Microsoft (R) Macro Assembler Version 5.00                  2/20/24 02:40:19
+                                                             Page     1-1
+
+
+				;Write program to declare 3 types of variables 
+				, input value in one and perform addition/subra
+				ction operation on them using enter ke
+				dosseg 
+				.model small 
+ 0100				.stack 100h 
+ 0000				.data 
+ 0000  48 45 4C 4C 4F 20 57	var1 db 'HELLO WORLD$' 
+       4F 52 4C 44 24		
+ 000C  30			var2 db '0'                     ;declare variab
+				les 
+ 000D  ??			var3 db ? 
+				 
+ 0000				.code 
+ 0000				main proc 
+ 0000  B8 ---- R		mov ax, @data                   ;move address o
+				f data into .code 
+ 0003  8E D8			mov ds,ax 
+				 
+ 0005  BA 0000 R		mov dx,offset var1 
+ 0008  B4 09			mov ah,9                        ;print var1 
+ 000A  CD 21			int 21h 
+				 
+ 000C  B2 0A			mov dl,10 
+ 000E  B4 02			mov ah,2                        ;enter 
+ 0010  CD 21			int 21h 
+				 
+ 0012  B2 0D			mov dl,13 
+ 0014  B4 02			mov ah,2                        ;carriage retue
+				n 
+ 0016  CD 21			int 21h 
+				 
+ 0018  8A 16 000C R		mov dl,var2 
+ 001C  B4 02			mov ah,2                        ;print var2 
+ 001E  CD 21			int 21h 
+				 
+ 0020  B2 0A			mov dl,10 
+ 0022  B4 02			mov ah,2                        ;new line 
+ 0024  CD 21			int 21h 
+				 
+ 0026  B2 0D			mov dl,13 
+ 0028  B4 02			mov ah,2                        ;carriage retur
+				n 
+ 002A  CD 21			int 21h 
+				 
+ 002C  B4 4C			mov ah,4ch 
+ 002E  CD 21			int 21h                         ;exit the progr
+				am 
+ 0030				main endp 
+ 0030				end main 
+Microsoft (R) Macro Assembler Version 5.00                  2/20/24 02:40:19
+                                                             Symbols-1
+
+
+Segments and Groups:
+
+                N a m e         	Length	 Align	Combine Class
+
+DGROUP . . . . . . . . . . . . .  	GROUP
+  _DATA  . . . . . . . . . . . .  	000E	WORD	PUBLIC	'DATA'
+  STACK  . . . . . . . . . . . .  	0100	PARA	STACK	'STACK'
+_TEXT  . . . . . . . . . . . . .  	0030	WORD	PUBLIC	'CODE'
+
+Symbols:            
+
+                N a m e         	Type	 Value	 Attr
+
+MAIN . . . . . . . . . . . . . .  	N PROC	0000	_TEXT	Length = 0030
+
+VAR1 . . . . . . . . . . . . . .  	L BYTE	0000	_DATA
+VAR2 . . . . . . . . . . . . . .  	L BYTE	000C	_DATA
+VAR3 . . . . . . . . . . . . . .  	L BYTE	000D	_DATA
+
+@CODE  . . . . . . . . . . . . .  	TEXT  _TEXT		
+@CODESIZE  . . . . . . . . . . .  	TEXT  0		
+@DATASIZE  . . . . . . . . . . .  	TEXT  0		
+@FILENAME  . . . . . . . . . . .  	TEXT  LAB3		
+
+
+     42 Source  Lines
+     42 Total   Lines
+     18 Symbols
+
+  51136 + 465408 Bytes symbol space free
+
+      0 Warning Errors
+      0 Severe  Errors
